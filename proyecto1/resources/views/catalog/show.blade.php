@@ -26,7 +26,7 @@
 						<br><br>
 						<button type="button" class="btn btn-danger">Devolver película</button>
 					@endif
-					<button type="button" class="btn btn-warning">Editar película</button>
+					<a href="{{url('/catalog/edit/.$id->id)}}"><button type="button" class="btn btn-warning">Editar película</button></a>
 					<button type="button" class="btn"> < Volver al listado</button>
 				</p>
 			</div>

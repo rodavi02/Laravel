@@ -10,7 +10,7 @@
 		   <div class="offset-md-3 col-md-6">
 		      <div class="card">
 		         <div class="card-header text-center">
-		            <h3><strong>Nueva Película</strong></h3>
+		            <h3><strong>Modificar Película</strong></h3>
 		         </div>
 		         <div class="card-body" style="padding:30px">
 
@@ -43,7 +43,7 @@
 
 		               <div class="form-group">
 		                  <button type="submit" align="center" class="btn btn-primary">
-		                      Añadir Película
+		                      Modificar Película
 		                  </button>
 		               </div>
 		            </form>

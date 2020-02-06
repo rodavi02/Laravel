@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pelicula;
+use App\Movie;
 
 class CatalogController extends Controller {
     private $arrayPeliculas = array(
