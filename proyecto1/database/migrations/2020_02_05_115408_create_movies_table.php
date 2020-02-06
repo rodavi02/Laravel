@@ -11,8 +11,7 @@ class CreateMoviesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('movies', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->timestamps();
@@ -30,8 +29,7 @@ class CreateMoviesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('movies');
     }
 }

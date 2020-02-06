@@ -14,7 +14,7 @@
 		         </div>
 		         <div class="card-body" style="padding:30px">
 
-		            <form action="/foo/bar" method="POST">
+		            <form action="{{action('CatalogController@postCreate')}}" method="POST">
 		                  {{csrf_field()}}
 		               <div class="form-group">
 		                  <h6 for="title"><strong>Título</strong></h6>

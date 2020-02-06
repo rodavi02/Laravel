@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Movie;
+use App\User;
 
-class DatabaseSeeder extends Seeder
-{
+class DatabaseSeeder extends Seeder {
     private $arrayPeliculas = array(
     array(
         'title' => 'El padrino',
@@ -167,18 +168,15 @@ class DatabaseSeeder extends Seeder
     )
 );
 
-     * @return void
-     */
-    public function run()
-    {
-        self:seedCatalog();
-        self:seedUsers();
+    public function run() {
+        self::seedCatalog();
+        self::seedUsers();
         $this->command->info('Tabla catálogo inicializada con datos.');
         $this->command->info('Tabla usuarios iniciada con datos.');
     }
 
     private function seedCatalog() {
-    	DB:table('movies')->delete();
+    	DB::table('movies')->delete();
     	foreach($this->arrayPeliculas as $pelicula) {
     		$p = new Movie;
     		$p->title = $pelicula['title'];
@@ -192,6 +190,16 @@ class DatabaseSeeder extends Seeder
     }
 
     private function seedUsers() {
-    	BD:table('users')->delete();
+    	DB::table('users')->delete();
+        $user = new User;
+        $user->name = 'juanfran';
+        $user->email = 'juanfran@gmail.com';
+        $user->password= bcrypt('juanfran');
+        $user->save();
+        $user2 = new User;
+        $user2->name = 'sonia';
+        $user2->email = 'sonia@gmail.com';
+        $user2->password= bcrypt('sonia');
+        $user2->save();
     }
 }
