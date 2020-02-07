@@ -46,4 +46,18 @@ class CatalogController extends Controller {
         $movie1->save();
         return redirect()->action('CatalogController@getIndex');
     }
+
+    #public function putRent(Request $request, $id) {
+    #    Movie::whereId($id)->update([
+    #        'rented' => true]);
+    #    session()->flash('notif', 'Has alquilado la película.');
+    #    return redirect('catalog/show/'.$id);
+    #}
+
+    #public function putReturn(Request $request, $id) {
+    #    Movie::whereId($id)->update([
+    #        'rented' => false]);
+    #    session()->flash('notif', 'Has devuelto la película.');
+    #    return redirect('catalog/show/'.$id);
+    #}
 }
