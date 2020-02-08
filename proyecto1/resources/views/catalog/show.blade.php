@@ -19,15 +19,28 @@
 					<strong>Estado:</strong> 
 					@if ($id->rented == false)
 						Película actualmente disponible.
-						<br><br>
-						<button type="button" class="btn btn-primary">Alquilar película</button>	
+						<br>
+						<p><form action="{{action('CatalogController@putRent', $id->id)}}" method="POST">
+							{{ method_field('PUT') }}
+							{{ csrf_field() }}
+							<button type="submit" class="btn btn-primary">Alquilar película</button>
+						</form></p>
 					@else
 						Película actualmente alquilada.
-						<br><br>
-						<button type="button" class="btn btn-danger">Devolver película</button>
+						<br>
+						<p><form action="{{action('CatalogController@putReturn', $id->id)}}" method="POST">
+							{{ method_field('PUT') }}
+							{{ csrf_field() }}
+							<button type="submit" class="btn btn-danger">Devolver película</button>
+						</form></p>
 					@endif
-					<a href="{{url('catalog/edit/'.$id->id)}}"><button type="button" class="btn btn-warning">Editar película</button></a>
-					<a class="btn" href="{{url('/')}}"><button type="button" class="btn"> < Volver al listado</button></a>
+					<p><a href="{{url('catalog/edit/'.$id->id)}}"><button type="button" class="btn btn-warning">Editar película</button></a></p>
+					<p><form action="{{action('CatalogController@deleteMovie', $id->id)}}" method="POST">
+						{{ method_field('DELETE') }}
+						{{ csrf_field() }}
+						<button type="submit" class="btn btn-dark">Eliminar película</button>
+					</form></p>
+					<p><a href="{{url('/')}}"><button type="button" class="btn">< Volver al listado</button></a></p>
 				</p>
 			</div>
 		</div>

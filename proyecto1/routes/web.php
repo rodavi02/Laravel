@@ -16,6 +16,9 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/catalog/create', 'CatalogController@getCreate');
 	Route::get('/catalog/edit/{id}', 'CatalogController@getEdit');
 	Route::put('/catalog/edit/{id}', 'CatalogController@putEdit');
+	Route::put('catalog/rent/{id}', 'CatalogController@putRent');
+	Route::put('catalog/return/{id}', 'CatalogController@putReturn');
+	Route::delete('catalog/delete/{id}', 'CatalogController@deleteMovie');
 });
 
 Auth::routes();

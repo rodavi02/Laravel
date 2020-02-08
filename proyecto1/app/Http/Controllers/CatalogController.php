@@ -47,17 +47,23 @@ class CatalogController extends Controller {
         return redirect()->action('CatalogController@getIndex');
     }
 
-    #public function putRent(Request $request, $id) {
-    #    Movie::whereId($id)->update([
-    #        'rented' => true]);
-    #    session()->flash('notif', 'Has alquilado la película.');
-    #    return redirect('catalog/show/'.$id);
-    #}
+    public function putRent(Request $request, $id) {
+        Movie::whereId($id)->update([
+            'rented' => true]);
+        session()->flash('notif', 'La película se ha alquilado.');
+        return redirect('catalog/show/'.$id);
+    }
 
-    #public function putReturn(Request $request, $id) {
-    #    Movie::whereId($id)->update([
-    #        'rented' => false]);
-    #    session()->flash('notif', 'Has devuelto la película.');
-    #    return redirect('catalog/show/'.$id);
-    #}
+    public function putReturn(Request $request, $id) {
+        Movie::whereId($id)->update([
+            'rented' => false]);
+        session()->flash('notif', 'La película se ha devueto.');
+        return redirect('catalog/show/'.$id);
+    }
+
+    public function deleteMovie(Request $request, $id) {
+        Movie::whereId($id)->delete();
+        session()->flash('notif', 'La película se ha eliminado.');
+        return redirect('catalog/index/');
+    }
 }
